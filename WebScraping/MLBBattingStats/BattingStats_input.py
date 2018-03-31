@@ -3,6 +3,7 @@ Created on Fri Mar 30 13:28:52 2018
 
 @author: Kari
 """
+# Basic web scrapping program that allows user to pick a team and it grabs the batting statistics 
 
 import requests
 from bs4 import BeautifulSoup
