@@ -3,6 +3,7 @@ Created on Fri Mar 30 13:28:52 2018
 
 @author: Kari
 """
+#Basic Web Scrapping program that uses BeautifulSoup and Requests to grab batting statistics from Houston Astros. 
 
 import requests
 from bs4 import BeautifulSoup 
