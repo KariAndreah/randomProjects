@@ -55,7 +55,7 @@ table_rows = table.find_all("tr")
 
 for tr in table_rows:
     td = tr.find_all("td")
-    rows = [i.text for i in td]
+    row = [i.text for i in td]
     print("\t".join(row))
        
 
