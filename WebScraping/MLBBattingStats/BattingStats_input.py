@@ -65,7 +65,7 @@ def mlb(team):
         return ("http://www.espn.com/mlb/team/stats/batting/_/name/tex/texas-rangers")
     elif team == "Diamondbacks":
         return ("http://www.espn.com/mlb/team/stats/batting/_/name/ari/index")
-    elif team == "Roockies":
+    elif team == "Rockies":
         return("http://www.espn.com/mlb/team/stats/batting/_/name/col/colorado-rockies")
     elif team == "Padres":
         return("http://www.espn.com/mlb/team/stats/batting/_/name/sd/san-diego-padres")
