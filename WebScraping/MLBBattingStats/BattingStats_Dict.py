@@ -39,7 +39,7 @@ mlb = { "astros":'http://www.espn.com/mlb/team/stats/batting/_/name/hou/houston-
        "mariners":"http://www.espn.com/mlb/team/stats/batting/_/name/sea/seattle-mariners",
        "rangers":"http://www.espn.com/mlb/team/stats/batting/_/name/tex/texas-rangers",
        "diamondbacks":"http://www.espn.com/mlb/team/stats/batting/_/name/ari/index",
-       "roockies":"http://www.espn.com/mlb/team/stats/batting/_/name/col/colorado-rockies",
+       "rockies":"http://www.espn.com/mlb/team/stats/batting/_/name/col/colorado-rockies",
        "padres": "http://www.espn.com/mlb/team/stats/batting/_/name/sd/san-diego-padres",
        "giants":"http://www.espn.com/mlb/team/stats/batting/_/name/sf/san-francisco-giants"}
        
@@ -48,15 +48,16 @@ url = mlb[team]
 response = requests.get(url)
    
 soup = BeautifulSoup(response.content, 'html.parser')
-  
-battingTables = soup.find('table', class_ = 'tablehead')
 
-for row in battingTables.find_all('tr'):
-    for cell in row.find_all('td'):
-        print(cell.text, "\t", end ="")
-    print('\n')
-        
-        
+table = soup.find_all('table')[0] 
+
+table_rows = table.find_all("tr")
+
+for tr in table_rows:
+    td = tr.find_all("td")
+    rows = [i.text for i in td]
+    print("\t".join(row))
+       
 
 # to print specific columnts change ('td') to ('td')[0:14:13] 
 # to print specific row change ('tr') to ('tr')[0:9:8]
