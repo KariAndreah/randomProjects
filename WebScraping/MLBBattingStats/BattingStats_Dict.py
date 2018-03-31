@@ -4,6 +4,7 @@ Created on Fri Mar 30 13:28:52 2018
 
 @author: Kari
 """
+#Decided to use a dictionary instead of if/elif statements
 
 import requests
 from bs4 import BeautifulSoup
