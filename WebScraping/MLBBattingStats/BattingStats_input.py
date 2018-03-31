@@ -15,7 +15,7 @@ def mlb(team):
     elif team == 'Yankees':
         return ('http://www.espn.com/mlb/team/stats/batting/_/name/nyy/new-york-yankees')
     elif team == 'Dodgers':
-        return("http://www.espn.com/mlb/team/_/name/lad/los-angeles-dodgers")
+        return("http://www.espn.com/mlb/team/stats/batting/_/name/lad/los-angeles-dodgers")
     elif team == 'Orioles':
         return('http://www.espn.com/mlb/team/stats/batting/_/name/bal')
     elif team == 'Red Sox':
