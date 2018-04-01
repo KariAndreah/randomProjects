@@ -1,0 +1,48 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Mar 30 13:28:52 2018
+
+@author: Kari
+"""
+
+import requests
+from bs4 import BeautifulSoup 
+import sqlite3
+
+url = 'http://www.espn.com/mlb/team/stats/batting/_/name/hou/houston-astros'
+
+response = requests.get(url)
+
+soup = BeautifulSoup(response.content, 'html.parser')
+
+table = soup.find_all('table')[0] 
+
+table_rows = table.find_all("tr")
+text_rows =[]
+
+for tr in table_rows:
+    td = tr.find_all("td")
+    text_rows.extend([i.text for i in td])
+    print (text_rows)
+    #print("\t".join(table_rows))
+
+
+conn = sqlite3.connect('C:\\Users\\Kari\\Desktop\\Python Projects\\BattingStat.db')
+cursor = conn.cursor()
+
+cursor.execute(''' CREATE TABLE IF NOT EXISTS stats (NAME TEXT, GP TEXT, AB TEXT, R TEXT,
+                                     H TEXT, secondB TEXT, thirdB TEXT, HR TEXT, 
+                                     RBI TEXT, TB TEXT , BB TEXT, SO TEXT,
+                                     SB TEXT, BA TEXT, OBP TEXT, SLG TEXT,
+                                    OPS TEXT, OWAR TEXT)''')
+conn.commit()
+
+cursor.executemany('''INSERT INTO stats VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)''',(text_rows))
+
+
+    
+conn.commit()
+cursor.close()
+conn.close()    
+
+# to print specific columnts change ('td') to ('td')[0:14:13]
