@@ -1,0 +1,12 @@
+import random
+import string
+    
+x= int(input("Number of Characters for Crytocurrency Wallet Address: "))
+
+letter = string.ascii_lowercase + string.digits
+
+print ("Cryptocurrency wallet adrress is: ")
+i = 0
+for i in range(0, x):
+    i = i + 1
+    print (random.choice(letter), end = "")
